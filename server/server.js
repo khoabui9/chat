@@ -59,7 +59,6 @@ io.on('connection', (socket) => {
         ref_user: data.ref_user,
         ref_room: data.ref_room
     });
-    console.log(data)
     console.log('user id:' + socket.id + 'sent message ' + data.message);
   });
 

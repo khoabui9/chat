@@ -11,11 +11,11 @@ addUser = (req, res) => {
     var user = new User({
         name: req.body.name
     });
-    user.save(function (err) {
+    user.save(function (err,data) {
         if (err) return handleError(err);
+        res.status(200);
+        res.json(data);
     })
-    res.status(201);
-    res.json();
 }
 
 addRoom = (req, res) => {
@@ -25,7 +25,7 @@ addRoom = (req, res) => {
     room.save(function (err) {
         if (err) return handleError(err);
     })
-    res.status(201);
+    res.status(200);
     res.json();
 }
 
@@ -50,7 +50,6 @@ storeMessage = (req, res) => {
         name: req.body.user
     }, function (err, data) {
         user = data._id;
-        console.log(user);
     });
     ChatRoom.findOne({
         title: req.body.room
