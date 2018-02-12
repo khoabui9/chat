@@ -1,0 +1,6 @@
+{
+    // Mocha: Glob to search for test files
+    "mocha.files.glob": "./server/test/test.js",
+    //Mocha: run tests on each save
+    "mocha.runTestsOnSave": "true",
+}

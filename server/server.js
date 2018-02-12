@@ -73,7 +73,11 @@ io.on('connection', (socket) => {
 
   socket.on('leave', function(data) {
     socket.leave(data.room);
-    console.log(data.user + " leaves " + data.room);
+    io.emit('leave receive', {
+      user: data.user,
+      room: data.room
+    })
+    console.log(data.user + " left " + data.room);
   })
 })
 

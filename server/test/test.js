@@ -9,43 +9,43 @@ var C = require('../controllers/app.controller');
 
 // UNIT test begin
 
-describe("SAMPLE unit test", function () {
-  // #1 should return home page
-  it("should return login page", function (done) {
-    // calling home page api
-    server
-      .get("/")
-      .expect("Content-type", /json/)
-      .expect(200) // THis is HTTP response
-      .end(function (err, res) {
-        res.status.should.be.equal(200);
-        done();
-      });
-  });
-});
+// describe("SAMPLE unit test", function () {
+//   // #1 should return home page
+//   it("should return login page", function (done) {
+//     // calling home page api
+//     server
+//       .get("/")
+//       .expect("Content-type", /json/)
+//       .expect(200) // THis is HTTP response
+//       .end(function (err, res) {
+//         res.status.should.be.equal(200);
+//         done();
+//       });
+//   });
+// });
 
-describe("api post add user", function () {
-  it("should return name of user", function (done) {
-    server
-      .post('/api')
-      .set('Accept','application/x-www-form-urlencoded')
-      .send({ name: "khoa" })
-      .end(function (err, res) {
-        console.log(res.body);
-        res.body.should.have.property("name");
-        res.body.name.should.equal('khoa');
-        res.status.should.be.equal(200);
-        done();
-      });
-  });
-});
+// describe("api post add user", function () {
+//   it("should return name of user", function (done) {
+//     server
+//       .post('/api')
+//       .set('Accept','application/x-www-form-urlencoded')
+//       .send({ name: "khoa" })
+//       .end(function (err, res) {
+//         console.log(res.body);
+//         res.body.should.have.property("name");
+//         res.body.name.should.equal('khoa');
+//         res.status.should.be.equal(200);
+//         done();
+//       });
+//   });
+// });
 
 // describe('Add user', function () {
 //   it('should have a addUser Method', function () {
 //     assert.equal(typeof C, 'object');
 //     assert.equal(typeof C.addUser, 'function');
 //   })
-// });
+// })
 
 // describe('Add room', function () {
 //   it('should have a addRoom Method', function () {
