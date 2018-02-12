@@ -68,8 +68,11 @@ export default class Chat extends Component {
     render() {
         const submitHandler = this.state.message ? this.handleSubmit : this.handleEmptySubmit;
         var checker1 = false;
+        var checker2 = false;
         if (this.props.room === localStorage.getItem('active'))
             checker1 = true;
+        if (this.props.leaveRoom === localStorage.getItem('active'))
+            checker2 = true;
         return (
             <div className="col-sm-7 cc">
                 <div className="side-header-chat">
@@ -78,14 +81,22 @@ export default class Chat extends Component {
                 <div id="mc" className="messages_container">
                     <MessagesList messages={this.props.messages} />
                 </div>
-                <p>
-                        {
-                            checker1?
-                                this.props.join + " joined"
-                                :
-                                null
-                        }
-                    </p>
+                <p className="join_mes">
+                    {
+                        checker1 ?
+                            this.props.join + " joined"
+                            :
+                            null
+                    }
+                </p>
+                <p className="leave_mes">
+                    {
+                        checker2 ?
+                            this.props.leave + " left"
+                            :
+                            null
+                    }
+                </p>
                 <div className="message_form-c">
                     {this.state.errorMessage}
                     <MessageForm

@@ -52,15 +52,6 @@ export default class ChatList extends Component {
     });
   }
 
-  userleave() {
-    var leaveUser = {
-      user: localStorage.getItem('user'),
-      room: localStorage.getItem('active')
-    }
-    var socket = this.props.socket;
-    socket.emit('leave', leaveUser);
-  }
-
   setAct() {
     console.log(document.getElementsByClassName('lefttitleaa')[0].id);
     this.setState({
@@ -77,7 +68,7 @@ export default class ChatList extends Component {
     })
       .then((res) => {
         localStorage.setItem('join', false);
-        this.userleave();
+        this.props.userLeave();
         this.setAct();
         this.props.update();
         this.props.updateList();

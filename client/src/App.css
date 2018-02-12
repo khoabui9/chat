@@ -151,12 +151,11 @@ textarea {
   font-weight: 200;
   font-size: 25px;
   display: inline;
-  padding: 20px;
+  padding: 10px;
 }
 
 hr {
-  background-color: white;
-  width: 65%;
+  background-color: rgb(13, 14, 22);
 }
 
 h4 {
@@ -253,6 +252,7 @@ h4 {
   border-radius: 5px;
   color: white;
   word-wrap: break-word;
+  margin-bottom: 10px;
 }
 
 textarea {
@@ -279,10 +279,11 @@ textarea {
   justify-content: center;
   align-content: center;
   padding: 10px;
+  background-color:rgb(100, 13, 13);
 }
 
 .down:hover {
-  background-color:rgb(187, 0, 0);
+  background-color:rgb(163, 0, 0);
 }
 
 .left,
@@ -340,13 +341,13 @@ textarea {
 }
 
 .leave {
-  height: 50px !important;
+  margin-top: 10%;
   width: 30%;
   float: right;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  font-size: 1.25rem;
 }
 
 .leave:hover {
@@ -357,4 +358,23 @@ textarea {
 .pcenter {
   text-align: center;
   font-size: 12px;
+}
+
+.leave_mes {
+  text-align: center;
+  background-color: lightcoral;
+  margin: 0;
+}
+
+.join_mes {
+  text-align: center;
+  background-color: lightgreen;
+  margin: 0;
+}
+
+#InputTitle {
+  font-family: 'Open Sans';
+    height: 50px;
+    border: none;
+    border-radius: 0;
 }

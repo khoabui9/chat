@@ -19,7 +19,7 @@ export default class ChatRoomItem extends Component {
           (!check2)?
             check2 = false
           :
-            <div className='leave' onClick={this.props.handleLeave}><i className="fa fa-sign-out" aria-hidden="true"></i>exit</div>
+            <div className='leave' onClick={this.props.handleLeave}><i className="fa fa-sign-out" aria-hidden="true"></i></div>
             
         }
         </div>

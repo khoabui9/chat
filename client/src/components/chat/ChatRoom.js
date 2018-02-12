@@ -13,7 +13,9 @@ export default class ChatRoom extends Component {
         this.state = {
             messageslist: [],
             join: '',
-            room: ''
+            room: '',
+            leave: '',
+            leaveRoom: ''
         }
 
         this.updateList = this.updateList.bind(this);
@@ -21,6 +23,7 @@ export default class ChatRoom extends Component {
         this.messageRecieve = this.messageRecieve.bind(this);
         this.handleLogOut = this.handleLogOut.bind(this);
         this.joinMes = this.joinMes.bind(this);
+        this.leaveMes = this.leaveMes.bind(this);
         this.resetJoinMes = this.resetJoinMes.bind(this);
     }
 
@@ -83,6 +86,19 @@ export default class ChatRoom extends Component {
         window.location = '/';
     }
 
+    leaveMes(data) {
+        if (data.room === localStorage.getItem('active')) {
+            if (data.user !== localStorage.getItem('user')) {
+                this.setState({
+                    leave: data.user,
+                    leaveRoom: data.room
+                })
+
+                this.resetJoinMes();
+            }
+        }
+    }
+
     joinMes(data) {
         if (data.room === localStorage.getItem('active')) {
             if (data.user !== localStorage.getItem('user')) {
@@ -102,7 +118,9 @@ export default class ChatRoom extends Component {
         setTimeout(function () {
             this.setState({
                 join: '',
-                room: ''
+                room: '',
+                leave: '',
+                leaveRoom: '',
             })
         }.bind(this),
             timePeriodInMs);
@@ -112,6 +130,8 @@ export default class ChatRoom extends Component {
         if (!this.props.loggedin) {
             localStorage.clear();
             var room = this.getCurrentPath();
+            if (room === ' ' || room === '' || room === 'chatrooms')
+                room = 'public'
             localStorage.setItem('active', room);
             return <Redirect to='/' />
         }
@@ -120,11 +140,14 @@ export default class ChatRoom extends Component {
                 <Profile handleLogOut={this.handleLogOut} />
                 <SideBar
                     join={this.joinMes}
+                    leave={this.leaveMes}
                     updateList={this.updateList}
                     socket={this.props.socket} />
                 <Chat
                     join={this.state.join}
                     room={this.state.room}
+                    leave={this.state.leave}
+                    leaveRoom={this.state.leaveRoom}
                     onMesSubmit={this.messageSend}
                     updateList={this.updateList}
                     messages={this.state.messageslist}
