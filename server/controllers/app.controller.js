@@ -96,7 +96,9 @@ saveUserToRoom = (req, res) => {
             }
         },
         function (err, data) {
-            console.log(err);
+            if (err) return next(err);
+            res.status(200);
+            res.json(data)
         }
     );
 }
@@ -114,6 +116,7 @@ removeUser = (req, res) => {
             safe: true,
             multi: true
         }, function (err, obj) {
+            res.status(200);
             res.json(obj)
         });
 }
