@@ -21,11 +21,15 @@ describe('Saving Records', function () {
           }
         });
 
-        var user = new User({ name: 'Zildjian' });
-        user.save( function( err ){
+        var user = new User({ name: "khoabui" });
+        user.save( function( err, data ){
             if ( err ){
                 console.log( err );
             }
+            data.should.have.property("name");
+            data.name.should.equal("khoabui");
+
+            mongoose.connection.close()
             done();
         });
     });
