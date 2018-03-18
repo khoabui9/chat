@@ -5,5 +5,6 @@ services:
   - mongodb
 before_script:
   - sleep 15
+  - mongod
   - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 script: npm run dev
