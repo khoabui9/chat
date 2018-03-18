@@ -4,5 +4,6 @@ node_js:
 services:
   - mongodb
 before_script:
+  - rm -rf node_modules
   - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 script: npm run dev
