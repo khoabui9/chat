@@ -23,15 +23,15 @@ export default class Profile extends Component {
                 <hr/>
                 <div className="text-center fake_menu col-sm-12">
                     <i className="fa fa-comments-o white" aria-hidden="true"></i>
-                    <h3 className="white">fake menu</h3>
+                    <h3 className="white">menu</h3>
                 </div>
                 <div className="text-center fake_menu col-sm-12">
                     <i className="fa fa-users white" aria-hidden="true"></i>
-                    <h3 className="white">fake menu</h3>
+                    <h3 className="white">menu</h3>
                 </div>
                 <div className="text-center fake_menu col-sm-12">
                     <i className="fa fa-phone white" aria-hidden="true"></i>
-                    <h3 className="white">fake menu</h3>
+                    <h3 className="white">menu</h3>
                 </div>
                 </div>
                 <div className="down" onClick={this.props.handleLogOut}>
