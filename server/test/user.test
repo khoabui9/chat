@@ -1,0 +1,29 @@
+var assert = require("assert");
+var supertest = require("supertest");
+var chai = require('chai');
+var should = chai.should();
+
+var server = supertest.agent("http://localhost:3000");
+
+var controller = require('../controllers/app.controller');
+
+describe('check if addUser method exists', function () {
+    it('should have addUser method', function () {
+        assert.equal(typeof controller, 'object');
+        assert.equal(typeof controller.addUser, 'function');
+    })
+});
+
+// describe('Save user to room', function () {
+//     it('should have a saveUserToRoom Method', function () {
+//         assert.equal(typeof C, 'object');
+//         assert.equal(typeof C.saveUserToRoom, 'function');
+//     })
+// });
+
+// describe('Remove user', function () {
+//     it('should have a removeUser Method', function () {
+//         assert.equal(typeof C, 'object');
+//         assert.equal(typeof C.removeUser, 'function');
+//     })
+// });

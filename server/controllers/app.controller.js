@@ -6,7 +6,13 @@ var Messages = require('../models/Messages');
  * @param {*} req 
  * @param {*} res 
  */
-addUser = (req, res) => {
+saveUser = (user) => {
+    user.save(function (err,data) {
+        if (err) return handleError(err);
+    })
+}
+
+ addUser = (req, res) => {
     //console.log(req.body.name);
     var user = new User({
         name: req.body.name
@@ -136,6 +142,7 @@ getRoomHasUser = (req, res) => {
 }
 
 module.exports = {
+    saveUser: saveUser, 
     addUser: addUser,
     addRoom: addRoom,
     getChatList: getChatList,
