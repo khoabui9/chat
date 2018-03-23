@@ -6,11 +6,14 @@ var Messages = require('../models/Messages');
  * @param {*} req 
  * @param {*} res 
  */
-// saveUser = (user) => {
-//     user.save(function (err,data) {
-//         if (err) return handleError(err);
-//     })
-// }
+saveUser = (name) => {
+    var user = new User({
+        name: name
+    });
+    user.save(function (err,data) {
+        if (err) return handleError(err);
+    })
+}
 
  addUser = (req, res) => {
     //console.log(req.body.name);

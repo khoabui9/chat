@@ -20,10 +20,8 @@ describe('save and find Record', function () {
         done()
       }
     });
-    var user = new User({
-      name: "test"
-    });
-    controller.saveUser(user);
+    var name = "test";
+    controller.saveUser(name);
   });
   it('Should return data saved to the database', function (done) {
     User.findOne({name: "test"}, (err, data) => {
